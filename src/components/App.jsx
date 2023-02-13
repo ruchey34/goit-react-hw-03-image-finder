@@ -36,7 +36,7 @@ export class App extends Component {
   handleSubmit = (e, value) => {
     e.preventDefault();
 
-    fetchImg(value, this.state.page)
+    fetchImg(value, 1)
       .then(res =>
         this.setState({ allImages: res.hits, page: 1, search: value })
       )
@@ -50,6 +50,10 @@ export class App extends Component {
   };
 
   render() {
+    // this.setState({
+    //   search: '',
+    //   page: 1,
+    // });
     const { isLoading, allImages } = this.state;
     const isAllImages = allImages.length;
     return (
